@@ -1,0 +1,62 @@
+<html>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .column {
+          float: left;
+          width: 20%;
+          padding: 10px;
+          height: 20px;
+        }
+        
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
+    <body>
+        <div id="app">
+            <h2>{{ benvenuto }}</h2>
+
+            <div class="row list-group" v-for="todo in todos">
+                <div class="list-group-item">
+                    <div class="column">ID: {{ todo.id }}</div>
+                    <div class="column">NAME: {{ todo.name }}</div>
+                    <div class="column">DESCRIPTION: {{ todo.description }}</div>
+                    <div class="column">COMPLETED: {{ todo.completed }}</div>
+                    <div class="column">ASSIGNEDTO: {{ todo.assignedTo }}</div>
+                </div>
+            </div>
+
+            <div class="row list-group">
+                <div class="list-group-item">
+                    <div>USER: {{ users }}</div>
+                </div>
+            </div>
+
+            <input v-model="name" placeholder="name"> 
+            <input v-model="description" placeholder="description"> 
+            <input v-model="assignedTo" placeholder="assignedTo"> 
+            <button v-on:click="newTodo">NEW TODO!</button>
+            <button v-on:click="getTodo">show todos</button>
+            <br>
+            <input v-model="id" placeholder="id"> 
+            <button v-on:click="deleteTodo">delete by id</button>
+            <br>
+            <input v-model="user" placeholder="user"> 
+            <button v-on:click="getTodoByUser">show todos by user</button>
+
+
+
+        </div>          
+    </body>
+    <script src="./app.js"></script>
+</html>
